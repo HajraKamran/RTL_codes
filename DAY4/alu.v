@@ -1,4 +1,3 @@
-`timescale 1ns/1ps
 module alu (a,b,op,res_o);
     input wire [7:0] a;
     input wire [7:0] b;
