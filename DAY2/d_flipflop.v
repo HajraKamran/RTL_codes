@@ -7,21 +7,21 @@ module d_flipflop (clk,rst,in,norst_o,syncrst_o,asyncrst_o);
   output reg asyncrst_o;
 
   // No reset
-  always @(posedge clk)
-    norst_o <= in;
+  always @(posedge clk)begin
+    norst_o <= in;end
 
   // Sync reset
-  always @(posedge clk)
+  always @(posedge clk)begin
     if (rst)
       syncrst_o <= 1'b0;
     else
-      syncrst_o <=in;
+      syncrst_o <=in;end
 
   // Async reset
-  always @(posedge clk or posedge rst)
+  always @(posedge clk or posedge rst)begin
     if (rst)
       asyncrst_o <= 1'b0;
     else
-      asyncrst_o <= in;
+      asyncrst_o <= in;end
 
 endmodule
