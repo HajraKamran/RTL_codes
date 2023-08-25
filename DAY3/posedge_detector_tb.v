@@ -10,21 +10,24 @@ posedge_detector u_edge (
     .out(out)
 );
 
-initial begin
+always begin
     #5; clk=~clk;
 end
 
 initial begin
-    #5; 
-    clk=1'b1;
-    in=1'b0;
-    #5;
-    in=1'b1;
-    #5;
-    in=1'b0;
-    #5;
-    in=1'b1;
-end
+    clk=0;
+    in = 1'b0; 
+    #15; 
+    in = 1'b1; 
+    #20; 
+    in = 1'b0; 
+    #15; 
+    in = 1'b1; 
+    #10;
+    in = 1'b0; 
+    #20;
+    $finish; 
+  end
 
 
 initial begin 
